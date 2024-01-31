@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c06ep2pbl64k8"]
+
+[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="1_pc50u"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 344.0
+offset_bottom = 110.0
+script = ExtResource("1_pc50u")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
