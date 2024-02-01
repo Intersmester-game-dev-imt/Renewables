@@ -1,33 +1,35 @@
 extends Control
 
-var score_decrease_speed: float = 3.0  # Ajoutez cette ligne pour déclarer la variable
+var score_decrease_speed: float = 3.0
 
 func _ready():
-	$ProgressBar.value = 100
+	$TextureProgressBar.value = 100
+	$TextureProgressBar.modulate = Color(0, 1, 0)
 
 func _process(delta):
 	pass
 
 func _on_timer_timeout():
-	$ProgressBar.value -= 0.6 * score_decrease_speed
+	$TextureProgressBar.value -= 0.3 * score_decrease_speed
 	update_progress_color()
-	if $ProgressBar.value <= 0:
+	if $TextureProgressBar.value <= 0:
 		reload_game()
-		
 
 func update_progress_color():
-	var percentage = $ProgressBar.value / $ProgressBar.max_value
+	var percentage = $TextureProgressBar.value / 100
 
 	if percentage < 0.25:
-		$ProgressBar.modulate = Color(1, 0, 0)  # Rouge
+		$TextureProgressBar.modulate = Color(1, 0, 0)  # Rouge
 	elif percentage < 0.5:
-		$ProgressBar.modulate = Color(1, 0.270588, 0, 1)  # Orange
+		$TextureProgressBar.modulate = Color(1, 0.270588, 0, 1)  # Orange
 	elif percentage < 0.75:
-		$ProgressBar.modulate = Color(1, 1, 0)  # Jaune
+		$TextureProgressBar.modulate = Color(1, 1, 0)  # Jaune
 	else:
-		$ProgressBar.modulate = Color(0, 1, 0)  # Vert
-		
-		
+		$TextureProgressBar.modulate = Color(0, 1, 0)  # Vert
+
+func set_score_decrease_speed(new_speed: float):
+	score_decrease_speed = new_speed
+
 func reload_game():
 	var current_scene = get_tree().current_scene
 	get_tree().reload_current_scene()
