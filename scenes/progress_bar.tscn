@@ -1,21 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://c06ep2pbl64k8"]
+[gd_scene load_steps=3 format=3 uid="uid://c06ep2pbl64k8"]
 
 [ext_resource type="Script" path="res://scripts/progress_bar.gd" id="1_pc50u"]
+[ext_resource type="Texture2D" uid="uid://csrtqmufucfnb" path="res://assets/checkpoints/Progress_bar.png" id="2_5exq1"]
 
-[node name="Control" type="Control"]
+[node name="ProgressBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 344.0
-offset_bottom = 110.0
+offset_right = 119.0
+offset_bottom = 36.0
 script = ExtResource("1_pc50u")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-custom_minimum_size = Vector2(200, 2.08165e-12)
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 50.0
-
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
 autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.282
+anchor_right = 7.282
+offset_left = -0.017395
+offset_top = 2.24493
+offset_right = 282.983
+offset_bottom = 92.2449
+allow_lesser = true
+texture_progress = ExtResource("2_5exq1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

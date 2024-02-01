@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5oo0vq8ok7k"]
+
+[ext_resource type="Texture2D" uid="uid://by50j1aishjst" path="res://assets/renewable_energies/solar_panel/active_solar_panel.png" id="1_he3nw"]
+[ext_resource type="Texture2D" uid="uid://0yu5gaknhlr2" path="res://assets/renewable_energies/solar_panel/broken_solar_panel.png" id="2_souhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ytr"]
+size = Vector2(327, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68o18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_he3nw")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_souhv")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[node name="SolarPanel" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -8)
+shape = SubResource("RectangleShape2D_h1ytr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 24)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_68o18")
+animation = &"active"
+autoplay = "broken"
