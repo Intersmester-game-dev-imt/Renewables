@@ -1,6 +1,7 @@
 extends Node
 
 @onready var progress_bar = $"../CanvasLayer/ProgressBar"
+@onready var pause_screen = $"../CanvaPause/PauseMenu"
 
 var points = 0
 var level = 0
@@ -30,3 +31,10 @@ func add_level():
 
 func get_level():
 	return level
+	
+func _input(event):
+	if !pause_screen.visible and event.is_action_pressed("ui_pause"):
+		print(event)
+		get_tree().paused = true
+		pause_screen._show()
+		set_physics_process(false)
