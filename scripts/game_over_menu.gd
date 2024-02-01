@@ -8,16 +8,15 @@ func resume():
 	get_tree().paused = false
 	set_physics_process(false)
 	
-func _show():
+func _show(value):
+	$PanelContainer/VPannel/Score.text = "Score : " + str(value)
 	visible = true
 	$BlurAnimation.play("blur")
+
 	
 func _hide():
 	$BlurAnimation.play_backwards("blur")
 	visible = false
-
-func _on_resume_pressed():
-	resume()
 
 func _on_quit_pressed():
 	resume()

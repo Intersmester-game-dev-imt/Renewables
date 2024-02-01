@@ -1,6 +1,7 @@
 extends Control
 
 var score_decrease_speed: float = 3.0
+signal game_over
 
 func _ready():
 	$TextureProgressBar.value = 100
@@ -13,7 +14,7 @@ func _on_timer_timeout():
 	$TextureProgressBar.value -= 0.3 * score_decrease_speed
 	update_progress_color()
 	if $TextureProgressBar.value <= 0:
-		reload_game()
+		game_over.emit()
 
 func update_progress_color():
 	var percentage = $TextureProgressBar.value / 100
@@ -33,3 +34,5 @@ func set_score_decrease_speed(new_speed: float):
 func reload_game():
 	var current_scene = get_tree().current_scene
 	get_tree().reload_current_scene()
+
+	

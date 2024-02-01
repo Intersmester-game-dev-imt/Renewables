@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bb6q418j8eklm"]
+[gd_scene load_steps=22 format=3 uid="uid://bb6q418j8eklm"]
 
 [ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/backgrounds/Green.png" id="1_ojhfr"]
 [ext_resource type="Texture2D" uid="uid://by0mslunqumr8" path="res://assets/character/Terrain (16x16).png" id="2_4nkv7"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/hydraulic_lever.gd" id="12_jacll"]
 [ext_resource type="PackedScene" uid="uid://c06ep2pbl64k8" path="res://scenes/progress_bar.tscn" id="16_ihqv0"]
 [ext_resource type="PackedScene" uid="uid://copdw54bw82g5" path="res://scenes/pause_menu.tscn" id="17_y55hm"]
+[ext_resource type="PackedScene" uid="uid://c1j3nuavpg4fn" path="res://scenes/game_over_menu.tscn" id="18_omiok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hc5x"]
 texture = ExtResource("2_4nkv7")
@@ -1247,6 +1248,10 @@ offset_right = 129.0
 [node name="CanvaPause" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvaPause" instance=ExtResource("17_y55hm")]
+
+[node name="CanvasGameOver" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasGameOver" instance=ExtResource("18_omiok")]
 
 [connection signal="body_entered" from="HydraulicLever" to="HydraulicLever" method="_on_body_entered"]
 [connection signal="body_exited" from="HydraulicLever" to="HydraulicLever" method="_on_body_exited"]
