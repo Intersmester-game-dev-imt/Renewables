@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const FIRST_JUMP_VELOCITY = -770.0
 const SECOND_JUMP_VELOCITY = -650.0
-const MAX_JUMPS = 50
+const MAX_JUMPS = 2
 var jump_count = 0
 
 @onready var sprite_2d = $Sprite2D
