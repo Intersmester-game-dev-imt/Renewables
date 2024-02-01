@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bb6q418j8eklm"]
+[gd_scene load_steps=22 format=3 uid="uid://bb6q418j8eklm"]
 
-[ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/Green.png" id="1_ojhfr"]
-[ext_resource type="Texture2D" uid="uid://by0mslunqumr8" path="res://assets/tilesets/Terrain (16x16).png" id="2_4nkv7"]
+[ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/backgrounds/Green.png" id="1_ojhfr"]
+[ext_resource type="Texture2D" uid="uid://by0mslunqumr8" path="res://assets/character/Terrain (16x16).png" id="2_4nkv7"]
 [ext_resource type="PackedScene" uid="uid://bhgqnq8yjkbqb" path="res://scenes/main_character.tscn" id="3_wo8iq"]
 [ext_resource type="Texture2D" uid="uid://biw0kcvcfl1d" path="res://assets/tilesets/tilemap_packed.png" id="3_xvx8l"]
 [ext_resource type="PackedScene" uid="uid://dwv6ixhh0bj74" path="res://scenes/collectible.tscn" id="4_yofsq"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ru0u1xubphmg" path="res://scenes/hydraulic_lever.tscn" id="11_udmom"]
 [ext_resource type="Script" path="res://scripts/hydraulic_lever.gd" id="12_jacll"]
 [ext_resource type="PackedScene" uid="uid://c06ep2pbl64k8" path="res://scenes/progress_bar.tscn" id="16_ihqv0"]
+[ext_resource type="PackedScene" uid="uid://copdw54bw82g5" path="res://scenes/pause_menu.tscn" id="17_y55hm"]
+[ext_resource type="PackedScene" uid="uid://c1j3nuavpg4fn" path="res://scenes/game_over_menu.tscn" id="18_omiok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hc5x"]
 texture = ExtResource("2_4nkv7")
@@ -1301,6 +1303,15 @@ centered = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("16_ihqv0")]
+offset_right = 129.0
+
+[node name="CanvaPause" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvaPause" instance=ExtResource("17_y55hm")]
+
+[node name="CanvasGameOver" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasGameOver" instance=ExtResource("18_omiok")]
 
 [connection signal="body_entered" from="HydraulicLever" to="HydraulicLever" method="_on_body_entered"]
 [connection signal="body_exited" from="HydraulicLever" to="HydraulicLever" method="_on_body_exited"]
