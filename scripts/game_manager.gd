@@ -3,6 +3,7 @@ extends Node
 @onready var progress_bar = $"../CanvasLayer/ProgressBar"
 @onready var pause_screen = $"../CanvaPause/PauseMenu"
 @onready var game_over_screen = $"../CanvasGameOver/GameOver"
+@onready var score_ui = $"../CanvaScore/ScoreUI"
 
 var points = 0
 var level = 0
@@ -12,7 +13,7 @@ func _ready():
 
 func add_point():
 	points += 1
-	print(points)
+	score_ui.update_score(points)
 
 func remove_points(nb_points):
 	if points - nb_points < 0:

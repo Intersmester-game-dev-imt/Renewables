@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bb6q418j8eklm"]
+[gd_scene load_steps=23 format=3 uid="uid://bb6q418j8eklm"]
 
 [ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/backgrounds/Green.png" id="1_ojhfr"]
 [ext_resource type="Texture2D" uid="uid://by0mslunqumr8" path="res://assets/character/Terrain (16x16).png" id="2_4nkv7"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c06ep2pbl64k8" path="res://scenes/progress_bar.tscn" id="16_ihqv0"]
 [ext_resource type="PackedScene" uid="uid://copdw54bw82g5" path="res://scenes/pause_menu.tscn" id="17_y55hm"]
 [ext_resource type="PackedScene" uid="uid://c1j3nuavpg4fn" path="res://scenes/game_over_menu.tscn" id="18_omiok"]
+[ext_resource type="PackedScene" uid="uid://dkek6o4a63ry8" path="res://scenes/score_ui.tscn" id="19_03f33"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hc5x"]
 texture = ExtResource("2_4nkv7")
@@ -1304,6 +1305,12 @@ centered = false
 
 [node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("16_ihqv0")]
 offset_right = 129.0
+
+[node name="CanvaScore" type="CanvasLayer" parent="."]
+offset = Vector2(5, 3)
+transform = Transform2D(1, 0, 0, 1, 5, 3)
+
+[node name="ScoreUI" parent="CanvaScore" instance=ExtResource("19_03f33")]
 
 [node name="CanvaPause" type="CanvasLayer" parent="."]
 
