@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c06ep2pbl64k8" path="res://scenes/progress_bar.tscn" id="16_ihqv0"]
 [ext_resource type="PackedScene" uid="uid://copdw54bw82g5" path="res://scenes/pause_menu.tscn" id="17_y55hm"]
 [ext_resource type="PackedScene" uid="uid://c1j3nuavpg4fn" path="res://scenes/game_over_menu.tscn" id="18_omiok"]
-[ext_resource type="PackedScene" uid="uid://dypmbhgu6n51o" path="res://scenes/score_ui.tscn" id="19_03f33"]
+[ext_resource type="PackedScene" uid="uid://dkek6o4a63ry8" path="res://scenes/score_ui.tscn" id="19_03f33"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hc5x"]
 texture = ExtResource("2_4nkv7")
@@ -1306,6 +1306,12 @@ centered = false
 [node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("16_ihqv0")]
 offset_right = 129.0
 
+[node name="CanvaScore" type="CanvasLayer" parent="."]
+offset = Vector2(5, 3)
+transform = Transform2D(1, 0, 0, 1, 5, 3)
+
+[node name="ScoreUI" parent="CanvaScore" instance=ExtResource("19_03f33")]
+
 [node name="CanvaPause" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvaPause" instance=ExtResource("17_y55hm")]
@@ -1313,12 +1319,6 @@ offset_right = 129.0
 [node name="CanvasGameOver" type="CanvasLayer" parent="."]
 
 [node name="GameOver" parent="CanvasGameOver" instance=ExtResource("18_omiok")]
-
-[node name="CanvaScore" type="CanvasLayer" parent="."]
-offset = Vector2(5, 3)
-transform = Transform2D(1, 0, 0, 1, 5, 3)
-
-[node name="ScoreUI" parent="CanvaScore" instance=ExtResource("19_03f33")]
 
 [connection signal="body_entered" from="HydraulicLever" to="HydraulicLever" method="_on_body_entered"]
 [connection signal="body_exited" from="HydraulicLever" to="HydraulicLever" method="_on_body_exited"]

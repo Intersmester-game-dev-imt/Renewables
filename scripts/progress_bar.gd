@@ -1,6 +1,6 @@
 extends Control
 
-var score_decrease_speed: float = 70.0
+var score_decrease_speed: float = 3.0
 signal game_over
 
 func _ready():
