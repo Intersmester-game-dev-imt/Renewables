@@ -1,6 +1,6 @@
 extends Node
 
-@onready var progress_bar = $"../CanvasLayer/ProgressBar"
+@onready var progress_bar = $"../CanvaProgressBar/ProgressBar"
 @onready var pause_screen = $"../CanvaPause/PauseMenu"
 @onready var game_over_screen = $"../CanvasGameOver/GameOver"
 @onready var score_ui = $"../CanvaScore/ScoreUI"

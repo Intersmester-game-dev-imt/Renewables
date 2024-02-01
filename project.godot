@@ -10,14 +10,13 @@ config_version=5
 
 [application]
 
-config/name="RenewableS Test"
+config/name="RenewableS"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

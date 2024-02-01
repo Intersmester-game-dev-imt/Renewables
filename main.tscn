@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb6q418j8eklm"]
+[gd_scene load_steps=24 format=3 uid="uid://bb6q418j8eklm"]
 
 [ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/Green.png" id="1_ojhfr"]
 [ext_resource type="Texture2D" uid="uid://by0mslunqumr8" path="res://assets/tilesets/Terrain (16x16).png" id="2_4nkv7"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://copdw54bw82g5" path="res://scenes/pause_menu.tscn" id="17_y55hm"]
 [ext_resource type="PackedScene" uid="uid://c1j3nuavpg4fn" path="res://scenes/game_over_menu.tscn" id="18_omiok"]
 [ext_resource type="PackedScene" uid="uid://dkek6o4a63ry8" path="res://scenes/score_ui.tscn" id="19_03f33"]
+[ext_resource type="AudioStream" uid="uid://bmsuysbxj8wg1" path="res://assets/field_theme.wav" id="20_t2qm6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hc5x"]
 texture = ExtResource("2_4nkv7")
@@ -1301,16 +1302,26 @@ motion_mirroring = Vector2(1152, 0)
 texture = ExtResource("10_ppif5")
 centered = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvaProgressBar" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("16_ihqv0")]
-offset_right = 129.0
+[node name="ProgressBar" parent="CanvaProgressBar" instance=ExtResource("16_ihqv0")]
+anchors_preset = -1
+anchor_right = 0.112
+anchor_bottom = 0.056
+offset_left = 75.0
+offset_top = 29.0
+offset_right = 74.976
+offset_bottom = 28.712
 
 [node name="CanvaScore" type="CanvasLayer" parent="."]
 offset = Vector2(5, 3)
 transform = Transform2D(1, 0, 0, 1, 5, 3)
 
 [node name="ScoreUI" parent="CanvaScore" instance=ExtResource("19_03f33")]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 3.0
 
 [node name="CanvaPause" type="CanvasLayer" parent="."]
 
@@ -1319,6 +1330,10 @@ transform = Transform2D(1, 0, 0, 1, 5, 3)
 [node name="CanvasGameOver" type="CanvasLayer" parent="."]
 
 [node name="GameOver" parent="CanvasGameOver" instance=ExtResource("18_omiok")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_t2qm6")
+autoplay = true
 
 [connection signal="body_entered" from="HydraulicLever" to="HydraulicLever" method="_on_body_entered"]
 [connection signal="body_exited" from="HydraulicLever" to="HydraulicLever" method="_on_body_exited"]
