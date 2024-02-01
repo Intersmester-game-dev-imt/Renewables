@@ -20,6 +20,7 @@ func remove_points(nb_points):
 		print("You don't have enough points")
 	else:
 		points -= nb_points
+		score_ui.update_score(points)
 
 func get_points():
 	return points
