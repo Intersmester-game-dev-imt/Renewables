@@ -1258,7 +1258,7 @@ script = ExtResource("9_alxar")
 
 [node name="Character" parent="." instance=ExtResource("3_wo8iq")]
 z_index = 1
-position = Vector2(655.866, -1119.56)
+position = Vector2(656.866, -1119.56)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 position = Vector2(1.3113e-06, -5.0962e-06)
