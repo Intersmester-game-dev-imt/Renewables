@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ru0u1xubphmg"]
+
+[ext_resource type="Texture2D" uid="uid://bn1ithrim5lqu" path="res://assets/renewable_energies/hydraulic_lever/lever_off.png" id="1_kwop1"]
+[ext_resource type="Texture2D" uid="uid://c4a2vudnfwrqq" path="res://assets/renewable_energies/hydraulic_lever/lever_on.png" id="2_t8y7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7yrt"]
+radius = 130.885
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjiot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t8y7d")
+}],
+"loop": false,
+"name": &"active",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kwop1")
+}],
+"loop": false,
+"name": &"off",
+"speed": 0.0
+}]
+
+[node name="Hydraulic Lever" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.000274658, 0.000320435)
+shape = SubResource("CircleShape2D_j7yrt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.00596035, 0.00595963)
+scale = Vector2(2.78821, 2.78821)
+sprite_frames = SubResource("SpriteFrames_kjiot")
+animation = &"active"
+autoplay = "off"

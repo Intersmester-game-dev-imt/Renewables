@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://xxp76n8c1ddx"]
+
+[ext_resource type="Texture2D" uid="uid://bv8rk00bm84mr" path="res://assets/renewable_energies/wind_turbine/cartoon_active_wind_turbine.png" id="1_bi4jr"]
+[ext_resource type="Texture2D" uid="uid://beenixnd5t1tf" path="res://assets/renewable_energies/wind_turbine/cartoon_broken_wind_turbine.png" id="2_fgekh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx20t"]
+size = Vector2(289.769, 307.188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lso1o"]
+atlas = ExtResource("1_bi4jr")
+region = Rect2(0, 0, 36, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vktb"]
+atlas = ExtResource("1_bi4jr")
+region = Rect2(36, 0, 36, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf8ow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lso1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vktb")
+}],
+"loop": true,
+"name": &"active",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fgekh")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[node name="WindTurbine" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(78.3308, -153.594)
+shape = SubResource("RectangleShape2D_dx20t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -120)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xf8ow")
+animation = &"broken"
+autoplay = "broken"
