@@ -3,8 +3,9 @@ extends Node
 @onready var progress_bar = $"../CanvaProgressBar/ProgressBar"
 @onready var pause_screen = $"../CanvaPause/PauseMenu"
 @onready var game_over_screen = $"../CanvasGameOver/GameOver"
+@onready var game_win_screen = $"../CanvasGameWin/GameWin"
 @onready var score_ui = $"../CanvaScore/ScoreUI"
-
+@onready var timer = $"../CanvasTimer/Panel"
 var points = 0
 var level = 0
 
@@ -49,3 +50,7 @@ func _on_game_over():
 	game_over_screen._show(points)
 	set_physics_process(false)
 	
+func _on_game_win():
+	get_tree().paused = true
+	set_physics_process(false)
+	game_win_screen._show(points, timer.get_time_formatted())

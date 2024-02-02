@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1j3nuavpg4fn"]
+[gd_scene load_steps=10 format=3 uid="uid://c56ybxldm1gc4"]
 
-[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_vl34x"]
-[ext_resource type="Shader" path="res://assets/blur.gdshader" id="2_xthlp"]
-[ext_resource type="Theme" uid="uid://cqf8rlu6phrvp" path="res://assets/themes/button_theme.tres" id="3_gykpb"]
+[ext_resource type="Script" path="res://scenes/game_win_menu.gd" id="1_gakwc"]
+[ext_resource type="Shader" path="res://assets/blur.gdshader" id="2_5b8fe"]
+[ext_resource type="Theme" uid="uid://cqf8rlu6phrvp" path="res://assets/themes/button_theme.tres" id="3_hdp83"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u0c02"]
-shader = ExtResource("2_xthlp")
+shader = ExtResource("2_5b8fe")
 shader_parameter/lod = 2.064
 
 [sub_resource type="SystemFont" id="SystemFont_xdkss"]
@@ -72,16 +72,15 @@ _data = {
 "blur": SubResource("Animation_4ke6t")
 }
 
-[node name="GameOver" type="Control"]
+[node name="GameWin" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vl34x")
+script = ExtResource("1_gakwc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_u0c02")
@@ -110,8 +109,8 @@ theme_override_constants/shadow_offset_y = 12
 theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 12
 theme_override_fonts/font = SubResource("SystemFont_xdkss")
-theme_override_font_sizes/font_size = 64
-text = "Game Over"
+theme_override_font_sizes/font_size = 48
+text = "Congratulations ! You finished the game !"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -123,9 +122,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.5
-offset_top = -124.0
+offset_top = -135.0
 offset_right = 126.5
-offset_bottom = 94.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
@@ -135,6 +134,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_f0kso")
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
+
+[node name="Time" type="Label" parent="PanelContainer/VPannel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Time  : "
 
 [node name="Score" type="Label" parent="PanelContainer/VPannel"]
 layout_mode = 2
@@ -146,12 +150,12 @@ layout_mode = 2
 
 [node name="replay" type="Button" parent="PanelContainer/VPannel"]
 layout_mode = 2
-theme = ExtResource("3_gykpb")
+theme = ExtResource("3_hdp83")
 text = "Replay"
 
 [node name="quit" type="Button" parent="PanelContainer/VPannel"]
 layout_mode = 2
-theme = ExtResource("3_gykpb")
+theme = ExtResource("3_hdp83")
 text = "Quit"
 
 [node name="BlurAnimation" type="AnimationPlayer" parent="."]
