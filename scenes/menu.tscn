@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b02m1jskp3ks1"]
+[gd_scene load_steps=8 format=3 uid="uid://b02m1jskp3ks1"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_a6uc1"]
-[ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/backgrounds/Green.png" id="2_v4ygf"]
+[ext_resource type="Texture2D" uid="uid://bpav8h6ywd4sc" path="res://assets/Green.png" id="2_v4ygf"]
 [ext_resource type="AudioStream" uid="uid://2d1qcod86bc8" path="res://assets/menu_soundtrack.mp3" id="3_jo7ol"]
 [ext_resource type="Theme" uid="uid://cqf8rlu6phrvp" path="res://assets/themes/button_theme.tres" id="3_q84vv"]
+[ext_resource type="Texture2D" uid="uid://cqecvqhdjjlgh" path="res://assets/collectibles/1.png" id="5_wqjn5"]
 
 [sub_resource type="SystemFont" id="SystemFont_ba7ql"]
 font_names = PackedStringArray("Impact")
@@ -46,6 +47,16 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 80
 
+[node name="1" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(351, 123)
+scale = Vector2(0.306373, 0.318023)
+texture = ExtResource("5_wqjn5")
+
+[node name="2" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(771, 125)
+scale = Vector2(0.306373, 0.318023)
+texture = ExtResource("5_wqjn5")
+
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -59,7 +70,7 @@ theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 12
 theme_override_fonts/font = SubResource("SystemFont_ba7ql")
 theme_override_font_sizes/font_size = 64
-text = "🔅 RenewableS"
+text = "RenewableS"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
